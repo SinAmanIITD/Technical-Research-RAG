@@ -1,0 +1,82 @@
+[
+  {
+    "question": "What is retrieval-augmented generation (RAG) and how does it differ from standard LLM inference?",
+    "ground_truth": "RAG combines a retrieval component (vector search over a document corpus) with a generative LLM. Unlike standard LLM inference which relies solely on parametric knowledge, RAG retrieves relevant passages at query time and conditions the LLM response on that evidence, reducing hallucination and enabling attribution."
+  },
+  {
+    "question": "What is the attention mechanism in transformers and why is it important?",
+    "ground_truth": "The attention mechanism computes weighted relationships between all token positions in a sequence simultaneously (self-attention), allowing the model to capture long-range dependencies. It uses Query, Key, and Value matrices and is the core building block of transformer architectures."
+  },
+  {
+    "question": "What is the difference between encoder-only (BERT) and decoder-only (GPT) transformer architectures?",
+    "ground_truth": "Encoder-only models like BERT use bidirectional attention and are pretrained with masked language modeling, making them suited for understanding tasks. Decoder-only models like GPT use causal (left-to-right) attention and autoregressive language modeling, making them better for text generation."
+  },
+  {
+    "question": "What is Maximal Marginal Relevance (MMR) and how does it improve retrieval?",
+    "ground_truth": "MMR balances relevance and diversity in retrieval by selecting documents that are relevant to the query but dissimilar from already-selected documents, reducing redundant context passed to the LLM."
+  },
+  {
+    "question": "What are the key metrics used by RAGAS to evaluate RAG systems?",
+    "ground_truth": "RAGAS evaluates RAG systems using faithfulness (does the answer align with retrieved context), answer relevancy (does the answer address the question), and context recall (does the retrieved context cover the ground truth answer)."
+  },
+  {
+    "question": "What is instruction tuning and how does it improve LLM performance on downstream tasks?",
+    "ground_truth": "Instruction tuning fine-tunes a pretrained LLM on datasets of (instruction, response) pairs, teaching the model to follow natural language instructions. It significantly improves zero-shot and few-shot task performance without task-specific fine-tuning."
+  },
+  {
+    "question": "What is Reinforcement Learning from Human Feedback (RLHF) and why is it used for LLM alignment?",
+    "ground_truth": "RLHF trains a reward model on human preference data, then uses PPO to fine-tune the LLM to maximize reward. It aligns model outputs with human values, making responses more helpful, harmless, and honest."
+  },
+  {
+    "question": "What is the role of chunk size and chunk overlap in RAG document processing?",
+    "ground_truth": "Chunk size controls the amount of text in each retrieved passage. Smaller chunks improve precision but may lose context. Chunk overlap preserves continuity across chunk boundaries, ensuring that sentences split across chunks are still represented."
+  },
+  {
+    "question": "What are dense passage embeddings and how do they enable semantic search?",
+    "ground_truth": "Dense embeddings represent text as continuous vectors in a high-dimensional space using models like sentence-transformers. Semantic search retrieves passages by computing cosine similarity between the query vector and document vectors, capturing meaning rather than keyword overlap."
+  },
+  {
+    "question": "How does the 'stuff' chain type in LangChain work for question answering?",
+    "ground_truth": "The 'stuff' chain concatenates all retrieved documents into a single context string and passes it to the LLM in one call. It is simple and effective for small context windows but may exceed token limits for very large retrieved sets."
+  },
+  {
+    "question": "What is the role of positional encoding in transformer models?",
+    "ground_truth": "Since transformers have no inherent notion of token order, positional encodings are added to token embeddings to inject sequence position information. Common approaches include sinusoidal encodings (original Transformer) and learned positional embeddings (BERT, GPT)."
+  },
+  {
+    "question": "What is the difference between sparse retrieval (BM25) and dense retrieval for RAG?",
+    "ground_truth": "BM25 is a lexical retrieval method based on term frequency and inverse document frequency, effective for keyword matching. Dense retrieval uses neural embeddings for semantic matching and can retrieve relevant documents even with different vocabulary from the query."
+  },
+  {
+    "question": "What is in-context learning in large language models?",
+    "ground_truth": "In-context learning is the ability of LLMs to perform new tasks by conditioning on a few demonstration examples in the prompt, without any gradient updates. It emerges from large-scale pretraining and is a defining capability of models like GPT-3."
+  },
+  {
+    "question": "What is multi-head attention and what advantage does it provide over single-head attention?",
+    "ground_truth": "Multi-head attention runs multiple attention operations in parallel, each with different learned projections of Query, Key, and Value. This allows the model to simultaneously attend to information from different representation subspaces and positions."
+  },
+  {
+    "question": "What is the vector database and why is it used in RAG pipelines?",
+    "ground_truth": "A vector database stores dense embeddings and supports efficient approximate nearest neighbor (ANN) search. In RAG, it stores document chunk embeddings at index time and retrieves the most semantically similar chunks at query time using metrics like cosine similarity."
+  },
+  {
+    "question": "What is faithfulness in the context of RAG evaluation?",
+    "ground_truth": "Faithfulness measures whether the generated answer is factually consistent with the retrieved context. A faithful answer makes no claims that contradict or go beyond the provided source documents."
+  },
+  {
+    "question": "What is the purpose of the feed-forward network in transformer layers?",
+    "ground_truth": "The feed-forward network (FFN) in each transformer layer applies two linear projections with a nonlinear activation in between, independently to each position. It adds representational capacity beyond what attention alone provides and is responsible for much of the model's knowledge storage."
+  },
+  {
+    "question": "How does scaling law research inform the development of large language models?",
+    "ground_truth": "Scaling laws show that LLM performance improves predictably with model size, dataset size, and compute, following power-law relationships. This has guided the development of larger models and informed optimal compute allocation (Chinchilla scaling laws)."
+  },
+  {
+    "question": "What is the hallucination problem in LLMs and how does RAG help mitigate it?",
+    "ground_truth": "LLMs sometimes generate plausible-sounding but factually incorrect information (hallucination) because they generate from parametric knowledge that may be outdated or incomplete. RAG mitigates this by grounding responses in retrieved, verifiable source documents."
+  },
+  {
+    "question": "What is sentence-transformers and why is it used for document embedding in RAG?",
+    "ground_truth": "Sentence-transformers is a library that fine-tunes transformer models (like BERT) using siamese/triplet networks to produce semantically meaningful sentence-level embeddings. Models like all-MiniLM-L6-v2 are fast, lightweight, and produce high-quality embeddings suitable for semantic search in RAG."
+  }
+]

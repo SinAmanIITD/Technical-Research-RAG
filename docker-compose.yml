@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  research-rag:
+    build: .
+    ports:
+      - "8501:8501"
+    environment:
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - CHROMA_DB_DIR=/app/chroma_db
+    volumes:
+      # Mount chroma_db from host so you can rebuild index without rebuilding image
+      - ./chroma_db:/app/chroma_db:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s

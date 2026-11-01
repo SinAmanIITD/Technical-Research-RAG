@@ -1,0 +1,34 @@
+# Core RAG stack
+langchain>=0.2
+langchain-community>=0.2
+langchain-google-genai>=1.0      # Gemini integration
+langchain-huggingface>=0.0.3     # HuggingFaceEmbeddings (replaces deprecated langchain.embeddings)
+langchain-chroma>=0.1            # Chroma vectorstore (replaces deprecated langchain.vectorstores)
+
+# Vector DB
+chromadb>=0.5
+
+# Embeddings (local, free)
+sentence-transformers>=2.2
+
+# PDF parsing
+pypdf>=3.0
+
+# ArXiv paper fetcher
+arxiv>=2.0
+requests>=2.31                   # HTTP download for arxiv PDFs (arxiv v2.x removed download_pdf())
+
+# Streamlit UI
+streamlit>=1.28
+
+# RAGAS evaluation
+ragas>=0.2
+datasets>=2.14
+
+# Utilities
+python-dotenv>=1.0
+tqdm>=4.65
+
+# Optional: Jupyter notebooks
+jupyter>=1.0
+ipykernel>=6.0

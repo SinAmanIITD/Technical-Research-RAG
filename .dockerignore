@@ -1,0 +1,25 @@
+# Secrets and credentials
+.env
+
+# Large data directories (not needed in image — COPY chroma_db explicitly)
+papers/
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Jupyter
+notebooks/
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
